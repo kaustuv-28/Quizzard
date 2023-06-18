@@ -1,0 +1,122 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css?family=Overlock:400,400i,700" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body class="container">
+        <button class="home">Home</button>
+        <div class="header">
+            <h1 class="text-center">Trivia Game</h1>
+            <p class="text-center">Test your knowledge with this trivia game!</p>
+        </div>
+            
+        <div class="preferences hidden" id="js-preferences">
+            <h1 class="text-center mb-4">How about some trivia?</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-7 col-lg-5">
+                    <div class="mb-3 form-group">
+                        <label for="js-qAmount">Amount</label>   
+                        <select class="custom-select form-control" id="js-qAmount">
+                            <option value="10" selected>10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>                               
+                        </select>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label for="js-qCategory">Category</label>   
+                        <select class="custom-select form-control" id="js-qCategory">
+                                <option value="any" selected>Any Category</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label for="js-qDifficulty">Difficulty</label>   
+                        <select class="custom-select form-control" id="js-qDifficulty">
+                            <option value="any" selected>Any Difficulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <div class="mb-5 form-group">
+                        <label for="js-qAmount">Type</label>   
+                        <select class="custom-select form-control" id="js-qType">
+                            <option value="any" selected>Any Type</option>
+                            <option value="multiple">Multiple Choice</option>
+                            <option value="boolean">True/False</option>
+                        </select>
+                    </div>
+
+                    <p class="text-center"><button class="btn btn-primary" id="js-btnStartGame">Start a Game</button></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main" id="js-main">
+            <div class="stats row" id="stats"></div>
+            <h1 id="question" class="question"></h1>
+            <div class="row justify-content-center">
+                <ul class="answers col col-md-6" id="answers">
+                </ul>
+            </div>
+            <div class="feedback-wrapper" id="feedback"></div>
+        </div>
+
+
+        <div class="summary" id="js-summary"></div>
+
+
+        
+        <!-- TEMPLATES -->
+        <template id="statsTemplate">
+            <p class="stats-index col"></p>
+            <p class="stats-score-wrapper col">Current Score: <span class="stats-score"></span></p>
+        </template>
+
+        <template id="answerTemplate">
+            <li class="answer">
+                <button type="button" class="btn btn-block btn-secondary" value=""></button>
+            </li>
+        </template>
+        <template id="feedbackTemplate">
+            <div class="feedback row">
+                <div class="col-lg-6">
+                    <p class="feedback-response"></p>
+                </div>
+                <div class="col feedback-button">
+                    <button class="btn btn-primary" id="btnNextQuestion">Next Question</button>
+                </div>
+            </div>
+        </template>
+        <template id="summaryTemplate">
+            <h1>Your Final Score: <span id="js-finalScore"></span></h1>
+            <ul class="selected-prefs" id="js-selectedPrefs"></ul>
+            <div class="row">
+                <div class="col btn-tryAgain">
+                    <button class="btn btn-primary" id="btnTryAgain">Ready to try again?</button>
+                </div>
+                <div class="col btn-returnSettings">
+                    <button class="btn btn-primary" id="btnReturnSettings">Return to Settings</button>
+                </div>
+            </div>
+        </template>
+
+        <script src="src/util.js"></script>
+        <script src="src/prefs.js"></script>
+        <script src="src/question.js"></script>
+        <script src="src/feedback.js"></script>
+        <script src="src/stats.js"></script>
+        <script src="src/app.js"></script>   
+    </body>
+</html>
